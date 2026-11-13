@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mohamed Chalaby — Producer Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--fg:#fff;--mute:#B5B5B5;--line:#292929;--pad:clamp(20px,4vw,64px);--head:'Anton',Impact,'Arial Narrow',sans-serif;--body:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg);overflow-x:clip}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+img,video{display:block;max-width:100%}
+.h{overflow-wrap:break-word;font-family:var(--head);font-weight:400;text-transform:uppercase;line-height:.88;letter-spacing:.005em}
+.eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--mute);font-weight:500}
+.lead{color:var(--mute);font-size:clamp(16px,1.25vw,19px);max-width:56ch}
+.lead p+p{margin-top:1.1em}
+.lead strong{color:var(--fg);font-weight:500}
+.wrap{padding:0 var(--pad)}
+section{position:relative}
+.rule{border:0;border-top:1px solid var(--line)}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:22px var(--pad);transition:background .4s,padding .4s;mix-blend-mode:normal}
+.nav.solid{background:rgba(0,0,0,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding-top:14px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.brand{font-family:var(--head);font-size:clamp(18px,1.6vw,22px);letter-spacing:.08em}
+.nav ul{display:flex;gap:clamp(16px,2.4vw,40px);list-style:none}
+.nav ul a{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--mute);font-weight:500;transition:color .2s}
+.nav ul a:hover,.nav ul a.on{color:var(--fg)}
+.burger{display:none;background:none;border:0;color:var(--fg);font:500 11px var(--body);letter-spacing:.26em;cursor:pointer}
+@media (max-width:820px){
+ .nav ul{position:fixed;inset:0;background:#000;flex-direction:column;justify-content:center;align-items:flex-start;padding:0 var(--pad);gap:18px;opacity:0;pointer-events:none;transition:opacity .3s}
+ .nav ul a{font-family:var(--head);font-size:44px;letter-spacing:.02em;color:var(--fg)}
+ .nav.open ul{opacity:1;pointer-events:auto}
+ .burger{display:block;position:relative;z-index:2}
+}
+
+/* hero */
+.hero{height:100svh;min-height:620px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;padding-bottom:clamp(28px,6vh,72px)}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;filter:contrast(1.08)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.05) 35%,rgba(0,0,0,.35) 60%,#000 100%)}
+.hero .wrap{position:relative;z-index:2}
+.hero .name{font-size:clamp(52px,9vw,150px);margin-left:-.02em}
+.hero .role{font-family:var(--body);font-weight:500;font-size:clamp(13px,1.2vw,18px);letter-spacing:.5em;text-transform:uppercase;margin-bottom:clamp(10px,1.6vh,20px);display:flex;align-items:center;gap:16px}
+.hero .role::before{content:"";width:44px;height:1px;background:#fff}
+.hero-bottom{display:grid;grid-template-columns:1.1fr 1fr;gap:var(--pad);align-items:end;margin-top:clamp(18px,3vh,36px);border-top:1px solid rgba(255,255,255,.18);padding-top:clamp(18px,3vh,30px)}
+.hero .tag{font-size:clamp(20px,2vw,32px)}
+.hero .lead{font-size:clamp(14px,1.05vw,16px)}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 26px;border:1px solid var(--fg);font:500 11px var(--body);letter-spacing:.26em;text-transform:uppercase;cursor:pointer;background:transparent;color:var(--fg);transition:background .25s,color .25s}
+.btn:hover{background:var(--fg);color:#000}
+.btn.fill{background:var(--fg);color:#000}
+.btn.fill:hover{background:transparent;color:var(--fg)}
+.btn .tri{width:0;height:0;border-left:8px solid currentColor;border-top:5px solid transparent;border-bottom:5px solid transparent}
+.scrollcue{position:absolute;right:var(--pad);top:50%;z-index:2;writing-mode:vertical-rl;font-size:10px;letter-spacing:.4em;color:var(--mute)}
+@media (max-width:820px){.hero-bottom{grid-template-columns:1fr}.scrollcue{display:none}}
+
+/* about */
+.about{padding:clamp(100px,16vh,200px) 0}
+.about-grid{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,110px);align-items:start}
+.about h2{font-size:clamp(40px,5.2vw,88px)}
+.about figure{margin-top:clamp(36px,6vh,70px);position:relative}
+.about figure img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 40%;filter:grayscale(1) contrast(1.05)}
+.about figcaption{margin-top:12px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.about .lead{font-size:clamp(17px,1.4vw,21px);max-width:none}
+.about .quote{font-family:var(--head);text-transform:uppercase;color:var(--fg);font-size:clamp(24px,2.4vw,40px);line-height:.95;margin-top:1.3em}
+.skills{margin-top:clamp(48px,8vh,90px);border-top:1px solid var(--line)}
+.skill{display:flex;align-items:center;gap:22px;padding:22px 0;border-bottom:1px solid var(--line)}
+.skill svg{width:30px;height:30px;flex:none;stroke:#fff;fill:none;stroke-width:1.2}
+.skill span{font-family:var(--head);font-size:clamp(18px,1.5vw,24px);text-transform:uppercase;letter-spacing:.02em}
+.skill em{margin-left:auto;font-style:normal;font-size:11px;letter-spacing:.2em;color:var(--mute)}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr}.about figure img{aspect-ratio:16/11}}
+
+/* section heads */
+.shead{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5vw,90px);align-items:end;margin-bottom:clamp(44px,7vh,90px)}
+.shead h2{font-size:clamp(44px,6.4vw,110px)}
+.shead .meta{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;border-bottom:1px solid var(--line);padding-bottom:18px}
+.count{font-family:var(--head);font-size:clamp(30px,2.6vw,44px);color:var(--line);-webkit-text-stroke:1px #555;color:transparent}
+@media (max-width:900px){.shead{grid-template-columns:1fr}}
+
+/* work */
+.work{padding:clamp(80px,14vh,170px) 0 clamp(60px,10vh,120px)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,1.6vw,26px)}
+.card{position:relative;overflow:hidden;cursor:pointer;background:#0a0a0a;aspect-ratio:16/10}
+.card.full{grid-column:1/-1;aspect-ratio:21/9}
+.card img,.card video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1),opacity .5s,filter .6s}
+.card img{filter:grayscale(.35) brightness(.78)}
+.card video{opacity:0}
+.card.playing video{opacity:1}
+.card:hover img,.card:hover video{transform:scale(1.04)}
+.card:hover img{filter:grayscale(0) brightness(.9)}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.85) 0%,rgba(0,0,0,0) 55%);pointer-events:none}
+.card .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:clamp(18px,2.2vw,36px);display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+.card .t{font-family:var(--head);text-transform:uppercase;font-size:clamp(28px,3vw,54px);line-height:.92}
+.card.full .t{font-size:clamp(34px,4.4vw,80px)}
+.card .cat{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute);margin-top:10px;font-weight:500}
+.card .idx{font-size:11px;letter-spacing:.2em;color:var(--mute);position:absolute;top:clamp(16px,2vw,28px);left:clamp(18px,2.2vw,36px);z-index:2}
+.card .play{width:58px;height:58px;border:1px solid rgba(255,255,255,.6);border-radius:50%;display:grid;place-items:center;flex:none;transition:background .3s,transform .3s}
+.card .play i{width:0;height:0;border-left:12px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px;transition:border-color .3s}
+.card:hover .play{background:#fff;transform:scale(1.06)}
+.card:hover .play i{border-left-color:#000}
+.also{margin-top:clamp(30px,5vh,56px);display:flex;flex-wrap:wrap;gap:12px 28px;align-items:baseline;color:var(--mute);font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+.also b{font-family:var(--head);font-weight:400;font-size:clamp(22px,2vw,30px);color:var(--fg);letter-spacing:.03em}
+@media (max-width:760px){.grid{grid-template-columns:1fr}.card,.card.full{aspect-ratio:16/11}.card .play{width:46px;height:46px}}
+
+/* transition band */
+.band{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;white-space:nowrap}
+.band div{display:inline-block;animation:marq 38s linear infinite;font-family:var(--head);font-size:clamp(22px,2.2vw,36px);text-transform:uppercase;color:transparent;-webkit-text-stroke:1px #6a6a6a}
+.band span{padding:0 .6em}
+.band span.w{color:#fff;-webkit-text-stroke:0}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* el adl */
+.adl{padding:clamp(100px,16vh,200px) 0}
+.adl h2{font-size:clamp(40px,6vw,104px)}
+.adl h2 .o{color:transparent;-webkit-text-stroke:1.5px #fff}
+.adl-role{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;margin:clamp(40px,6vh,70px) 0}
+.adl-role b{font-family:var(--head);font-weight:400;font-size:clamp(22px,2.2vw,36px);letter-spacing:.03em}
+.adl-grid{display:grid;grid-template-columns:6fr 5fr;gap:clamp(32px,6vw,110px);align-items:start}
+.channel{position:relative;display:block;aspect-ratio:16/10;border:1px solid var(--line);overflow:hidden;background:
+ repeating-linear-gradient(90deg,transparent 0 calc(25% - 1px),#161616 calc(25% - 1px) 25%),
+ repeating-linear-gradient(0deg,transparent 0 calc(33.333% - 1px),#161616 calc(33.333% - 1px) 33.333%),#050505}
+.channel .screen{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(20px,2.6vw,40px)}
+.channel .live{display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute)}
+.channel .live i{width:8px;height:8px;border-radius:50%;background:#fff;animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.2}}
+.channel .big{font-family:var(--head);text-transform:uppercase;font-size:clamp(38px,4.6vw,84px);line-height:.88}
+.channel .handle{display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:12px;letter-spacing:.2em;color:var(--mute);text-transform:uppercase}
+.channel .yt{width:74px;height:74px;border-radius:50%;border:1px solid #fff;display:grid;place-items:center;transition:background .3s,transform .3s}
+.channel .yt i{width:0;height:0;border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px;transition:border-color .3s}
+.channel:hover .yt{background:#fff;transform:scale(1.07)}
+.channel:hover .yt i{border-left-color:#000}
+.channel:hover{border-color:#555}
+.adl .lead{font-size:clamp(17px,1.4vw,21px);max-width:none}
+.adl .ctas{margin-top:36px}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(50px,8vh,90px);border-top:1px solid var(--line)}
+.pillars div{padding:26px 24px 0 0}
+.pillars div+div{border-left:1px solid var(--line);padding-left:24px}
+.pillars b{display:block;font-family:var(--head);font-weight:400;font-size:clamp(22px,2vw,30px);text-transform:uppercase;margin-bottom:8px}
+.pillars p{color:var(--mute);font-size:14px}
+@media (max-width:900px){.adl-grid{grid-template-columns:1fr}.pillars{grid-template-columns:1fr}.pillars div+div{border-left:0;padding-left:0;border-top:1px solid var(--line);margin-top:22px}}
+
+/* philosophy */
+.philo{padding:clamp(120px,22vh,260px) 0;text-align:left}
+.philo h2{font-size:clamp(44px,6.6vw,116px)}
+.philo h2 .ln{display:block;overflow:hidden;padding:.06em 0 .04em;margin-bottom:-.06em}
+.philo h2 .ln>span{display:block;transform:translateY(105%);transition:transform 1.1s cubic-bezier(.2,.75,.15,1)}
+.philo.in h2 .ln>span{transform:none}
+.philo h2 .ln:nth-child(2)>span{transition-delay:.12s}
+.philo h2 .ln:nth-child(3)>span{transition-delay:.24s}
+.philo h2 .dim{color:#3a3a3a}
+.philo .lead{margin-top:clamp(40px,7vh,80px);margin-left:auto;font-size:clamp(17px,1.4vw,21px)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:clamp(70px,12vh,140px)}
+.three div{padding:28px 0;font-family:var(--head);font-size:clamp(20px,2vw,32px);text-transform:uppercase;line-height:.95}
+.three small{display:block;font:500 11px var(--body);letter-spacing:.26em;color:var(--mute);margin-bottom:14px}
+@media (max-width:760px){.three{grid-template-columns:1fr}}
+
+/* contact */
+.contact{padding:clamp(100px,16vh,200px) 0 0}
+.contact h2{font-size:clamp(44px,6.8vw,120px)}
+.contact h2 .o{color:transparent;-webkit-text-stroke:1.5px #fff}
+.contact-grid{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,110px);margin-top:clamp(50px,8vh,100px)}
+.links{border-top:1px solid var(--line);margin-top:34px}
+.links a,.links div{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);transition:color .2s,padding .3s}
+.links a b{font-family:var(--head);font-weight:400;font-size:clamp(22px,2vw,30px);letter-spacing:.03em;color:var(--fg)}
+.links a:hover{padding-left:10px;color:var(--fg)}
+form{display:grid;gap:0;border-top:1px solid var(--line)}
+.field{border-bottom:1px solid var(--line);display:grid;grid-template-columns:130px 1fr;align-items:baseline;padding:4px 0}
+.field label{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);font-weight:500}
+.field input,.field select,.field textarea{width:100%;background:transparent;border:0;color:var(--fg);font:300 17px var(--body);padding:18px 0;outline:none;resize:vertical}
+.field select{appearance:none;cursor:pointer}
+.field select option{background:#000}
+.field:focus-within{border-bottom-color:#fff}
+.field:focus-within label{color:#fff}
+form .btn{margin-top:30px;justify-self:start;padding:22px 40px;font-size:12px}
+.sent{display:none;margin-top:22px;color:var(--mute);font-size:15px;border-left:1px solid #fff;padding-left:16px}
+.sent.show{display:block}
+.sent a{color:#fff;border-bottom:1px solid #fff}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}.field{grid-template-columns:1fr}.field input,.field select,.field textarea{padding:10px 0 16px}}
+footer{margin-top:clamp(100px,16vh,180px);border-top:1px solid var(--line);padding:30px var(--pad) 34px;display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:end}
+footer .fn{font-family:var(--head);font-size:clamp(32px,3.4vw,54px);text-transform:uppercase;line-height:.9}
+footer small{font-size:11px;letter-spacing:.26em;color:var(--mute);text-transform:uppercase}
+footer .r{text-align:right}
+@media (max-width:760px){footer{grid-template-columns:1fr}footer .r{text-align:left}}
+
+/* project page overlay */
+.proj{position:fixed;inset:0;z-index:100;background:#000;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .5s}
+.proj.open{opacity:1;pointer-events:auto}
+.proj-top{position:sticky;top:0;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:18px var(--pad);background:rgba(0,0,0,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.proj-top button{background:none;border:0;color:var(--fg);font:500 11px var(--body);letter-spacing:.26em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;gap:10px}
+.proj-top button:hover{color:var(--mute)}
+.proj-hero{padding:clamp(40px,7vh,80px) var(--pad) 0}
+.proj-hero h1{font-size:clamp(48px,7vw,120px)}
+.proj-hero .cat{margin-top:16px}
+.player{margin:clamp(30px,5vh,56px) var(--pad) 0;background:#050505;border:1px solid var(--line)}
+.player video{width:100%;max-height:82vh;margin:0 auto;background:#000}
+.proj-body{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,110px);padding:clamp(50px,8vh,90px) var(--pad)}
+.proj-body h3{font-size:clamp(26px,2.4vw,40px);margin-bottom:24px}
+.credits{border-top:1px solid var(--line)}
+.credits div{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid var(--line);font-size:14px}
+.credits dt,.credits span:first-child{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+.proj-next{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding:clamp(36px,6vh,60px) var(--pad);cursor:pointer}
+.proj-next .h{font-size:clamp(32px,4.4vw,72px);transition:letter-spacing .5s}
+.proj-next:hover .h{letter-spacing:.03em}
+@media (max-width:900px){.proj-body{grid-template-columns:1fr}}
+
+/* reel modal */
+.reel{position:fixed;inset:0;z-index:110;background:rgba(0,0,0,.96);display:grid;place-items:center;padding:var(--pad);opacity:0;pointer-events:none;transition:opacity .4s}
+.reel.open{opacity:1;pointer-events:auto}
+.reel video{width:min(1400px,100%);max-height:84vh;background:#000}
+.reel button{position:absolute;top:22px;right:var(--pad);background:none;border:0;color:#fff;font:500 11px var(--body);letter-spacing:.26em;cursor:pointer}
+.reel p{position:absolute;bottom:22px;left:var(--pad);font-size:11px;letter-spacing:.24em;color:var(--mute);text-transform:uppercase}
+
+.player{position:relative}
+.loading{display:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.6);padding:12px 18px;border:1px solid var(--line);pointer-events:none}
+.loading.show{display:block}
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+@media (prefers-reduced-motion:reduce){.rv,.philo h2 .ln>span{opacity:1;transform:none;transition:none}.band div{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a class="brand" href="#home">MOHAMED CHALABY</a>
+  <button class="burger" id="burger" aria-label="Menu">MENU</button>
+  <ul id="menu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#commercials">Commercials</a></li>
+    <li><a href="#el-adl-digital">El Adl Digital</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <video id="heroVid" data-src="v/hero.mp4" poster="v/hero.jpg" autoplay muted loop playsinline></video>
+  <div class="scrollcue">SCROLL — SELECTED WORK 2024–2026</div>
+  <div class="wrap">
+    <div class="role rv">Producer</div>
+    <h1 class="h name rv d1">Mohamed Chalaby</h1>
+    <div class="hero-bottom rv d2">
+      <div class="h tag">Commercials. Digital Content.<br>Real Stories.</div>
+      <div>
+        <p class="lead">I bring creative visions to life through commercial advertising and digital content production. From the first idea to the final cut, I bring together the right people, resources, and expertise to make every production happen.</p>
+        <div class="ctas">
+          <a class="btn fill" href="#commercials">Explore my work</a>
+          <button class="btn" id="reelBtn"><span class="tri"></span>Watch showreel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="eyebrow rv">01 — About me</div>
+      <h2 class="h rv d1" style="margin-top:24px">The person behind the production.</h2>
+      <figure class="rv d2">
+        <img src="v/mohamed.jpg" alt="Black and white portrait of Mohamed Chalaby wearing headphones">
+        <figcaption>Mohamed Chalaby — Producer</figcaption>
+      </figure>
+    </div>
+    <div style="padding-top:clamp(0px,6vh,60px)">
+      <div class="lead rv">
+        <p><strong>I’m Mohamed Chalaby, an Egyptian producer working across commercial advertising, branded campaigns, and digital entertainment.</strong></p>
+        <p>I believe great productions start with great ideas and the right people to bring them to life. From planning and coordinating crews to managing logistics and overseeing on-set execution, I take pride in turning creative concepts into impactful productions.</p>
+        <p>Alongside my work in commercial advertising, I’m responsible for producing digital content for El Adl Group Digital, bringing together storytelling, creativity, and production expertise to create engaging entertainment.</p>
+      </div>
+      <p class="quote rv">For me, producing isn’t just about getting things done. It’s about making things happen.</p>
+      <div class="skills">
+        <div class="skill rv"><svg viewBox="0 0 32 32"><rect x="3" y="9" width="19" height="15" rx="1"/><path d="M22 14l7-4v13l-7-4"/><circle cx="9" cy="5.5" r="2.5"/><circle cx="16" cy="5.5" r="2.5"/></svg><span>Commercial Production</span><em>01</em></div>
+        <div class="skill rv"><svg viewBox="0 0 32 32"><rect x="3" y="6" width="26" height="17" rx="1"/><path d="M13 11l7 3.5-7 3.5z"/><path d="M10 27h12M16 23v4"/></svg><span>Digital Content Production</span><em>02</em></div>
+        <div class="skill rv"><svg viewBox="0 0 32 32"><circle cx="16" cy="9" r="4"/><circle cx="6" cy="13" r="3"/><circle cx="26" cy="13" r="3"/><path d="M8 27c0-5 3.5-8 8-8s8 3 8 8M1 25c0-3.5 2-5.5 5-5.5M31 25c0-3.5-2-5.5-5-5.5"/></svg><span>Crew Coordination</span><em>03</em></div>
+        <div class="skill rv"><svg viewBox="0 0 32 32"><rect x="5" y="4" width="22" height="25" rx="1"/><path d="M11 4v3h10V4M10 13h12M10 18h12M10 23h7"/></svg><span>Production Management</span><em>04</em></div>
+        <div class="skill rv"><svg viewBox="0 0 32 32"><path d="M4 12h24v16H4z"/><path d="M4 12l3-7 21 0-3 7M11 5l-3 7M18 5l-3 7M25 5l-3 7"/></svg><span>On-Set Execution</span><em>05</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMERCIALS -->
+<section class="work" id="commercials">
+  <div class="wrap">
+    <div class="eyebrow rv">02 — Commercial production · Selected work</div>
+    <div class="shead" style="margin-top:24px">
+      <h2 class="h rv">From ideas<br>to action.</h2>
+      <div class="meta rv d1">
+        <div class="lead">
+          <p>I work across commercial advertising and branded productions, collaborating with creative teams, directors, and brands to turn ambitious concepts into reality.</p>
+          <p>Whether it’s a large-scale commercial or a brand campaign, I oversee the production process from pre-production to the final shoot, making sure every detail comes together seamlessly.</p>
+        </div>
+        <div class="count" id="count">09</div>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<div class="band" aria-hidden="true"><div id="band"></div></div>
+
+<!-- EL ADL DIGITAL -->
+<section class="adl" id="el-adl-digital">
+  <div class="wrap">
+    <div class="eyebrow rv">03 — Digital entertainment</div>
+    <h2 class="h rv d1" style="margin-top:24px">Beyond commercials.<br><span class="o">Into digital entertainment.</span></h2>
+    <div class="adl-role rv"><b>PRODUCER — EL ADL GROUP DIGITAL</b><span class="eyebrow">Digital entertainment · Storytelling · Production</span></div>
+    <div class="adl-grid">
+      <a class="channel rv" href="https://youtube.com/@eladldigital" target="_blank" rel="noopener">
+        <div class="screen">
+          <div class="live"><i></i> Official channel · YouTube</div>
+          <div class="big">El Adl<br>Digital</div>
+          <div class="handle"><span>@eladldigital</span><span class="yt"><i></i></span></div>
+        </div>
+      </a>
+      <div>
+        <div class="lead rv">
+          <p><strong>As a producer for El Adl Group Digital, I bring creative concepts to life through digital entertainment and storytelling.</strong></p>
+          <p>I work closely with creative teams, talent, and production crews to transform ideas into engaging digital content.</p>
+          <p>From planning and coordinating production to managing shoots and overseeing execution, my focus is on making sure every story is brought to life with creativity, efficiency, and attention to detail.</p>
+        </div>
+        <div class="ctas rv">
+          <a class="btn fill" href="https://youtube.com/@eladldigital" target="_blank" rel="noopener"><span class="tri"></span>Explore El Adl Digital</a>
+        </div>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="rv"><b>Creative teams</b><p>Working side by side with writers and creatives to shape ideas into productions.</p></div>
+      <div class="rv d1"><b>Talent &amp; crews</b><p>Bringing the right talent and production crews together for every shoot.</p></div>
+      <div class="rv d2"><b>Execution</b><p>Planning, managing shoots and overseeing delivery with efficiency and detail.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philo" id="philo">
+  <div class="wrap">
+    <div class="eyebrow">04 — Production philosophy</div>
+    <h2 class="h" style="margin-top:28px"><span class="ln"><span>Good ideas</span></span><span class="ln"><span class="dim">deserve great</span></span><span class="ln"><span>production.</span></span></h2>
+    <div class="lead rv">
+      <p>I believe every great production starts with an idea, but it’s the people, passion, and execution behind it that make it memorable.</p>
+      <p><strong>My approach is simple: bring the right people together, solve challenges, and make every idea happen.</strong></p>
+    </div>
+    <div class="three">
+      <div class="rv"><small>01</small>I produce<br>commercials.</div>
+      <div class="rv d1"><small>02</small>I produce digital<br>entertainment.</div>
+      <div class="rv d2"><small>03</small>I make ideas<br>happen.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="eyebrow rv">05 — Contact</div>
+    <h2 class="h rv d1" style="margin-top:24px">Got an idea?<br><span class="o">Let’s make it happen.</span></h2>
+    <div class="contact-grid">
+      <div>
+        <div class="lead rv">
+          <p>I’m always open to new collaborations, creative challenges, and ambitious productions.</p>
+          <p>Whether you’re planning a commercial campaign or developing digital content, let’s bring your next idea to life.</p>
+        </div>
+        <div class="links rv">
+          <a href="https://www.instagram.com/mohamedchalabyy" target="_blank" rel="noopener"><span>Instagram</span><b>@mohamedchalabyy ↗</b></a>
+          <a href="https://youtube.com/@eladldigital" target="_blank" rel="noopener"><span>El Adl Digital</span><b>YouTube ↗</b></a>
+          <div><span>Based in</span><span style="color:#fff">Egypt</span></div>
+        </div>
+      </div>
+      <form id="form" class="rv d1" novalidate>
+        <div class="field"><label for="fn">Name</label><input id="fn" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="fc">Company</label><input id="fc" name="company" autocomplete="organization"></div>
+        <div class="field"><label for="ft">Project</label>
+          <select id="ft" name="type"><option>Commercial campaign</option><option>Branded content</option><option>Digital content</option><option>Something else</option></select></div>
+        <div class="field"><label for="fm">The idea</label><textarea id="fm" name="msg" rows="4" required></textarea></div>
+        <button class="btn fill" type="submit">Let’s talk →</button>
+        <div class="sent" id="sent"></div>
+      </form>
+    </div>
+  </div>
+  <footer>
+    <div class="fn">Mohamed<br>Chalaby</div>
+    <small>Commercial &amp; Digital Content Producer</small>
+    <small class="r">Based in Egypt.</small>
+  </footer>
+</section>
+
+<!-- PROJECT PAGE -->
+<div class="proj" id="proj" role="dialog" aria-modal="true" aria-labelledby="pTitle">
+  <div class="proj-top">
+    <button id="pClose">← All work</button>
+    <span class="eyebrow" id="pIdx"></span>
+  </div>
+  <div class="proj-hero">
+    <div class="eyebrow" id="pCat"></div>
+    <h1 class="h" id="pTitle" style="margin-top:14px"></h1>
+  </div>
+  <div class="player"><video id="pVid" controls playsinline></video><div class="loading" id="pLoad">Loading video…</div></div>
+  <div class="proj-body">
+    <div><h3 class="h">Project overview</h3><p class="lead" id="pDesc"></p></div>
+    <div><h3 class="h">Credits</h3><dl class="credits" id="pCred"></dl></div>
+  </div>
+  <div class="proj-next" id="pNext"><span class="eyebrow">Next project</span><span class="h" id="pNextT"></span></div>
+</div>
+
+<!-- REEL -->
+<div class="reel" id="reel" role="dialog" aria-modal="true" aria-label="Showreel">
+  <button id="reelClose">CLOSE ✕</button>
+  <video id="reelVid" poster="v/hero.jpg" controls playsinline></video>
+  <div class="loading" id="rLoad">Loading showreel…</div>
+  <p>Showreel — Mohamed Chalaby</p>
+</div>
+
+<script>
+/* Videos are served from the artifact's media store, which streams to <video> on every device */
+const VID={};
+const vurl=u=>{const k=u.replace(/^v\//,'').replace(/\.mp4$/,'');return VID[k]?'/_blob/'+VID[k]:u};
+function blobSrc(url){return Promise.resolve(vurl(url))}
+function setVideo(v,url){const s=vurl(url);v.dataset.want=url;
+  return new Promise(res=>{if(v.getAttribute('src')===s)return res(v);
+    const done=()=>{v.removeEventListener('loadeddata',done);v.removeEventListener('error',done);res(v)};
+    v.addEventListener('loadeddata',done);v.addEventListener('error',done);setTimeout(done,8000);
+    v.src=s;v.load();});}
+const P=[
+ {id:'baheya',t:'Baheya',cat:'Cause campaign · Healthcare',full:true,start:90,
+  d:'A cause-led film for Baheya that follows patients and their families through treatment, closing on the line “Every Moment Matters Always.” An intimate, low-key production built on real emotion and restraint.'},
+ {id:'changan',t:'Changan',cat:'Automotive',start:5,
+  d:'A testimonial-style automotive spot for Changan, told through a couple’s story and the role the car plays in their life — shot across home interiors, garden exteriors and in-car scenes.'},
+ {id:'v7',t:'V7',cat:'Beverage · Music-led campaign',start:25,
+  d:'A music-led campaign for V7 Vitamin Sparkling Drink and V7 Super Soda — a road-trip-to-night-party performance film moving between desert roads, the beach and a packed club.'},
+ {id:'koffee',t:'Koffee Kulture',cat:'Food & beverage · Brand film',full:true,start:4,
+  d:'A cinematic brand film for Koffee Kulture, set in a traditional coffeehouse: brass, kanaka, oud and the ritual of Egyptian coffee, captured in warm, low-light detail.'},
+ {id:'hardees',t:'Hardee’s',cat:'Quick service restaurant',start:5,
+  d:'A character-driven commercial for Hardee’s, built around friends, a late-night couch session and the meal at the centre of it, finishing on product hero shots.'},
+ {id:'koldair',t:'Koldair',cat:'Home appliances',start:8,
+  d:'A product commercial for Koldair water dispensers, moving from a stylised set-built living room to an open-landscape scene and tight product detail of the dispenser’s controls.'},
+ {id:'smartvillage',t:'Smart Village',cat:'Business park · Lifestyle film',full:true,start:40,
+  d:'A lifestyle film for Smart Village, moving through its glass-and-steel architecture, workspaces, sports pitches, gym and green landscape to show a full day of work and life on campus.'},
+ {id:'glee',t:'Glee North Coast',cat:'Real estate · By Tharaa Developments',start:6,
+  d:'A summer lifestyle film for Glee North Coast by Tharaa Developments — beachside games, waves and a crowd running into the sea, capturing the feeling of a North Coast summer.'},
+ {id:'clue',t:'Clue',cat:'Brand film · “A Spring Swing”',start:10,
+  d:'“A Spring Swing” for Clue — a colourful, music-driven poolside film with flamingos, beach huts and a cast of characters, styled with a playful retro summer palette.'}
+];
+const grid=document.getElementById('grid');
+const pad=n=>String(n).padStart(2,'0');
+P.forEach((p,i)=>{
+  const a=document.createElement('a');
+  a.className='card rv'+(p.full?' full':'')+(i%2&&!p.full?' d1':'');
+  a.href='#'+p.id;a.setAttribute('aria-label','Open project: '+p.t);
+  a.innerHTML=`<img src="v/${p.id}.jpg" alt="Still from the ${p.t} commercial" loading="lazy"><video muted playsinline loop preload="none" data-src="v/${p.id}.mp4"></video><span class="idx">${pad(i+1)} / ${pad(P.length)}</span><div class="cap"><div><div class="t">${p.t}</div><div class="cat">${p.cat}</div></div><span class="play"><i></i></span></div>`;
+  const v=a.querySelector('video');let to;
+  a.addEventListener('mouseenter',()=>{if(!matchMedia('(hover:hover)').matches)return;
+    to=setTimeout(async()=>{if(!v.src){await setVideo(v,v.dataset.src);await new Promise(r=>v.readyState>=1?r():v.addEventListener('loadedmetadata',r,{once:true}));try{v.currentTime=p.start}catch(e){}}
+      if(!a.matches(':hover'))return;v.play().then(()=>a.classList.add('playing')).catch(()=>{});},180)});
+  a.addEventListener('mouseleave',()=>{clearTimeout(to);v.pause();a.classList.remove('playing')});
+  grid.appendChild(a);
+});
+document.getElementById('band').innerHTML=(()=>{const s=['Commercials','<span class="w">✦</span>','Digital entertainment','<span class="w">✦</span>','El Adl Digital','<span class="w">✦</span>','Real stories','<span class="w">✦</span>'].map(x=>x.startsWith('<')?x:`<span>${x}</span>`).join('');return s+s+s+s})();
+
+/* project page via hash */
+const proj=document.getElementById('proj'),pVid=document.getElementById('pVid');
+let lastScroll=0,current=null;
+function openProj(id){
+  const i=P.findIndex(p=>p.id===id);if(i<0)return closeProj(true);
+  const p=P[i],n=P[(i+1)%P.length];current=id;
+  if(!proj.classList.contains('open'))lastScroll=scrollY;
+  document.getElementById('pTitle').textContent=p.t;
+  document.getElementById('pCat').textContent=p.cat;
+  document.getElementById('pIdx').textContent=pad(i+1)+' / '+pad(P.length);
+  document.getElementById('pDesc').textContent=p.d;
+  document.getElementById('pCred').innerHTML=`<div><span>Client</span><span>${p.t}</span></div><div><span>Category</span><span>${p.cat}</span></div><div><span>Producer</span><span>Mohamed Chalaby</span></div>`;
+  document.getElementById('pNextT').textContent=n.t+' →';
+  document.getElementById('pNext').onclick=()=>{location.hash=n.id};
+  pVid.poster='v/'+p.id+'.jpg';pVid.removeAttribute('src');pVid.load();document.getElementById('pLoad').classList.add('show');setVideo(pVid,'v/'+p.id+'.mp4').then(()=>document.getElementById('pLoad').classList.remove('show'));
+  proj.classList.add('open');proj.scrollTop=0;document.body.style.overflow='hidden';
+}
+function closeProj(silent){
+  if(!proj.classList.contains('open'))return;
+  pVid.pause();pVid.dataset.want='';pVid.removeAttribute('src');pVid.load();
+  proj.classList.remove('open');document.body.style.overflow='';current=null;
+  if(!silent){history.replaceState?history.replaceState(null,'',' '):location.hash='';}
+  requestAnimationFrame(()=>scrollTo({top:lastScroll,behavior:'instant'}));
+}
+const sectionIds=['home','about','commercials','el-adl-digital','contact','philo'];
+function route(){
+  const h=location.hash.slice(1);
+  if(P.some(p=>p.id===h))openProj(h);
+  else{ if(proj.classList.contains('open')){closeProj(true);} }
+}
+addEventListener('hashchange',route);route();
+document.getElementById('pClose').onclick=()=>{closeProj(false);document.getElementById('commercials').scrollIntoView({behavior:'instant'})};
+
+/* reel */
+const reel=document.getElementById('reel'),rv=document.getElementById('reelVid');
+document.getElementById('reelBtn').onclick=async()=>{reel.classList.add('open');document.body.style.overflow='hidden';
+  if(!rv.src){document.getElementById('rLoad').classList.add('show');await setVideo(rv,'v/showreel.mp4');document.getElementById('rLoad').classList.remove('show');}
+  rv.play().catch(()=>{})};
+/* hero loop now; showreel fetched quietly after the page settles */
+setVideo(document.getElementById('heroVid'),'v/hero.mp4').then(v=>v.play().catch(()=>{}));
+
+function closeReel(){rv.pause();reel.classList.remove('open');document.body.style.overflow=''}
+document.getElementById('reelClose').onclick=closeReel;
+reel.addEventListener('click',e=>{if(e.target===reel)closeReel()});
+addEventListener('keydown',e=>{if(e.key==='Escape'){if(reel.classList.contains('open'))closeReel();else if(proj.classList.contains('open'))closeProj(false)}});
+
+/* nav */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>60),{passive:true});
+document.getElementById('burger').onclick=()=>{nav.classList.toggle('open');document.getElementById('burger').textContent=nav.classList.contains('open')?'CLOSE':'MENU'};
+document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();nav.classList.remove('open');document.getElementById('burger').textContent='MENU';document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'})}));
+document.querySelector('.brand').addEventListener('click',e=>{e.preventDefault();scrollTo({top:0,behavior:'smooth'})});
+document.querySelectorAll('.hero .ctas a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'})}));
+
+/* reveal + active nav */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rv,.philo').forEach(el=>io.observe(el));
+const links=[...document.querySelectorAll('#menu a')];
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-45% 0px -50% 0px'});
+['home','about','commercials','el-adl-digital','contact'].forEach(id=>so.observe(document.getElementById(id)));
+
+/* form */
+document.getElementById('form').addEventListener('submit',async e=>{
+  e.preventDefault();const f=e.target,s=document.getElementById('sent');
+  if(!f.name.value.trim()||!f.msg.value.trim()){s.textContent='Please add your name and a few words about the idea.';s.classList.add('show');return}
+  const txt=`Hi Mohamed — I'm ${f.name.value.trim()}${f.company.value.trim()?' from '+f.company.value.trim():''}. Project: ${f.type.value}.\n\n${f.msg.value.trim()}`;
+  let copied=false;try{await navigator.clipboard.writeText(txt);copied=true}catch(err){}
+  s.innerHTML=(copied?'Your message is copied. ':'')+'Send it to me directly on <a href="https://www.instagram.com/mohamedchalabyy" target="_blank" rel="noopener">Instagram @mohamedchalabyy</a> and I’ll get back to you.';
+  s.classList.add('show');
+});
+</script>
+</body>
+</html>
